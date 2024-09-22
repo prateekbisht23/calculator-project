@@ -21,7 +21,7 @@ document.addEventListener("keydown", (event) => {
     }
     
     // Handle Enter key for "="
-    if (key === "Enter") {
+    if (key === "Enter" || key === "=") {
         if (value.length != 0) {
             let newval = eval(value);
             value = newval;
@@ -30,7 +30,7 @@ document.addEventListener("keydown", (event) => {
     }
     
     // Handle Escape key for "C" (clear)
-    if (key === "Escape") {
+    if (key === "Escape" || key === "C" || key === "c") {
         value = "";
         display.value = value;
     }
