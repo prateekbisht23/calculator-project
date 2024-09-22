@@ -11,6 +11,38 @@ switchbtn.addEventListener("click", ()=>{
     }
 });
 
+document.addEventListener("keydown", (event) => {
+    const key = event.key;
+    
+    // Handle number keys and operators
+    if (!isNaN(key) || ["+", "-", "*", "/"].includes(key)) {
+        value += key;
+        display.value = value;
+    }
+    
+    // Handle Enter key for "="
+    if (key === "Enter") {
+        if (value.length != 0) {
+            let newval = eval(value);
+            value = newval;
+            display.value = value;
+        }
+    }
+    
+    // Handle Escape key for "C" (clear)
+    if (key === "Escape") {
+        value = "";
+        display.value = value;
+    }
+    
+    // Handle Backspace for removing the last character
+    if (key === "Backspace") {
+        value = value.slice(0, -1);
+        display.value = value;
+    }
+});
+
+
 input.forEach((e)=>{
     e.addEventListener("click", (event)=>{
         if(event.target.value == "="){
